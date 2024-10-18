@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class StatisticItemWidget extends StatefulWidget {
+class NumberItemWidget extends StatefulWidget {
   final String name;
   final int value;
   final Color textColor;
   final BoxDecoration decoration;
   final Animation<double> animation;
-  const StatisticItemWidget({
+  const NumberItemWidget({
     super.key,
     required this.name,
     required this.value,
@@ -18,10 +18,10 @@ class StatisticItemWidget extends StatefulWidget {
   });
 
   @override
-  State<StatisticItemWidget> createState() => _StatisticItemWidgetState();
+  State<NumberItemWidget> createState() => _NumberItemWidgetState();
 }
 
-class _StatisticItemWidgetState extends State<StatisticItemWidget>
+class _NumberItemWidgetState extends State<NumberItemWidget>
     with TickerProviderStateMixin {
   late AnimationController _counterAnimationController;
 

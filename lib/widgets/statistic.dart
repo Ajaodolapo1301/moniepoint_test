@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/color.dart';
-import 'stat_widget.dart';
+import 'num_widget.dart';
 
 class StatisticWidget extends StatelessWidget {
   final Animation<double> animation;
@@ -13,7 +13,7 @@ class StatisticWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          child: StatisticItemWidget(
+          child: NumberItemWidget(
             name: 'Buy',
             value: 1034,
             animation: animation,
@@ -24,7 +24,7 @@ class StatisticWidget extends StatelessWidget {
         ),
         10.horizontalSpace,
         Expanded(
-          child: StatisticItemWidget(
+          child: NumberItemWidget(
             name: 'Rent',
             value: 2212,
             animation: animation,
