@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
-
 import '../utils/assets.dart';
 import '../utils/color.dart';
 import '../utils/generate_latlng.dart';
@@ -53,10 +52,7 @@ class _MapPageRootWidgetState extends State<MapPageRootWidget>
         Tween<double>(begin: 0, end: 1).animate(_animationController);
     _overlayScaleAnimation =
         Tween<double>(begin: 0, end: 1).animate(_overlayAnimationController);
-    // _determinePosition().then((Position position) {
-    //   latLng = LatLng(position.latitude, position.longitude);
-    //   _setScreen();
-    // });
+
     _setScreen();
 
     super.initState();
@@ -65,7 +61,7 @@ class _MapPageRootWidgetState extends State<MapPageRootWidget>
   _setScreen() {
     locations = generateLatLng(latLng, 5);
     mapController?.move(latLng, 13);
-    // mapController?.fitCamera(CameraFit.coordinates(coordinates: locations));
+
     _animationController.forward();
     setState(() {});
   }
@@ -261,30 +257,7 @@ class _MapPageRootWidgetState extends State<MapPageRootWidget>
     );
   }
 
-  // Future<Position> _determinePosition() async {
-  //   bool serviceEnabled;
-  //   LocationPermission permission;
 
-  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     return Future.error('Location services are disabled.');
-  //   }
-
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //     if (permission == LocationPermission.denied) {
-  //       return Future.error('Location permissions are denied');
-  //     }
-  //   }
-
-  //   if (permission == LocationPermission.deniedForever) {
-  //     return Future.error(
-  //         'Location permissions are permanently denied, we cannot request permissions.');
-  //   }
-
-  //   return await Geolocator.getCurrentPosition();
-  // }
 
   _closeOverlay() {
     if (_overlayAnimationController.isCompleted) {
